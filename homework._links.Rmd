@@ -9,6 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#LAB 2
-
 week 1 Homework [HW1 Link](Hw1.html)
