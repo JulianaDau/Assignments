@@ -9,3 +9,6 @@ navbar:
       href: about.html
     - text: "Homeworks"
       href: homework._links.html
+    - text: "Assignments"
+      href: Lab.assignments.html
+      
