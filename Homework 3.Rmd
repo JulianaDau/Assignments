@@ -1,0 +1,54 @@
+---
+title: 'Homework #3'
+author: "Juliana Dau"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```
+#Example 1
+
+#Find:\s{2,}
+#Replace:,
+#Reason: to find consecutive single spaces that are 2 or more characters and 
+replace with , to match the .csv file. Needed this way so the single space
+between "First string is not detected
+
+```
+```
+#Example 2
+#Find: (\w*),\s(\w*),\s(.*)
+#Replace:\2 \1 \(\3\)
+#Reason: (\w*) capture the first word, and followed by \s(\w*) finds the 
+first word comma and second word. \s(.*) will indicate all the rest 
+(university name). On replace the order matches the desired organization 
+bringing the second capture to be first and the first capture to second 
+position while the third is added parentheses.
+
+```
+```
+#Example 3
+#Find:.mp3\s
+#Replace:.mp3\n
+#Reason:Indicated to find mp3 and space (.mp3\s) since that is the end of 
+each line. In turn indicated to the place a line break at this point so each 
+new line start after .mp3
+
+```
+```
+#Example 4
+#Find:
+#Replace:
+#Reason:
+
+```
+
+
+
+```
