@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-01-29" />
+<meta name="date" content="2025-02-02" />
 
 <title>Homework #3</title>
 
@@ -270,20 +270,27 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Homework #3</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-01-29</h4>
+<h4 class="date">2025-02-02</h4>
 
 </div>
 
 
 <pre><code>#Example 1
-
+#Input:
+First String    Second      1.22      3.4
+Second          More Text   1.555555  2.2220
+Third           x           3         124
 #Find:\s{2,}
 #Replace:,
 #Reason: to find consecutive single spaces that are 2 or more characters and 
 replace with , to match the .csv file. Needed this way so the single space
 between &quot;First string is not detected
-</code></pre>
+#Result:
+First String,Second,1.22,3.4
+Second,More Text,1.555555,2.2220
+Third,x,3,124</code></pre>
 <pre><code>#Example 2
+#Input:
 #Find: (\w*),\s(\w*),\s(.*)
 #Replace:\2 \1 \(\3\)
 #Reason: (\w*) capture the first word, and followed by \s(\w*) finds the 
@@ -291,6 +298,7 @@ first word comma and second word. \s(.*) will indicate all the rest
 (university name). On replace the order matches the desired organization 
 bringing the second capture to be first and the first capture to second 
 position while the third is added parentheses.
+#Result:
 </code></pre>
 <pre><code>#Example 3
 #Find:.mp3\s
@@ -304,7 +312,25 @@ new line start after .mp3
 #Replace:
 #Reason:
 </code></pre>
-<p>```</p>
+<pre><code>
+#Example 5
+#Find:
+#Replace:
+#Reason:
+</code></pre>
+<pre><code>#Example 6
+#Find:
+#Replace:
+#Reason:
+</code></pre>
+<pre><code>#Example 7
+#Find:
+#Replace:
+#Reason:</code></pre>
+<pre><code>#Example 8
+#Find:
+#Replace:
+#Reason:</code></pre>
 
 
 
