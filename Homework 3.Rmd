@@ -30,6 +30,9 @@ Third,x,3,124
 ```
 #Example 2
 #Input:
+Ballif, Bryan, University of Vermont
+Ellison, Aaron, Harvard Forest
+Record, Sydne, Bryn Mawr
 #Find: (\w*),\s(\w*),\s(.*)
 #Replace:\2 \1 \(\3\)
 #Reason: (\w*) capture the first word, and followed by \s(\w*) finds the 
@@ -38,48 +41,76 @@ first word comma and second word. \s(.*) will indicate all the rest
 bringing the second capture to be first and the first capture to second 
 position while the third is added parentheses.
 #Result:
+Bryan Ballif (University of Vermont)
+Aaron Ellison (Harvard Forest)
+Sydne Record (Bryn Mawr)
 
 ```
 ```
 #Example 3
+#Input:
+0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 0003 Winder Slide.mp3 0004 Walking Cane.mp3
 #Find:.mp3\s
 #Replace:.mp3\n
 #Reason:Indicated to find mp3 and space (.mp3\s) since that is the end of 
 each line. In turn indicated to the place a line break at this point so each 
 new line start after .mp3
+#Result:
+0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Winder Slide.mp3
+0004 Walking Cane.mp3
 
 ```
 ```
 #Example 4
-#Find:
-#Replace:
-#Reason:
+#Input: 
+0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Winder Slide.mp3
+0004 Walking Cane.mp3
+#Find:(\d{4}) (\w*) (\w+)
+#Replace: (\2) (\3) (_\1)(\4)
+#Reason: with (\d{4}) I`m marking the 4 digit sequence as the first item of capture. Followed byt the first word (\w*) and following characters. Changed the order and added _. 
+#Result: 
+Georgia Horseshoe _0001.mp3
+Billy In _The Lowground _0002.mp3
+Winder Slide _0003.mp3
+Walking Cane _0004.mp3
 
 ```
 ```
 
 #Example 5
+#Input:
 #Find:
 #Replace:
 #Reason:
+#Result:
 
 ```
 ```
 #Example 6
+#Input:
 #Find:
 #Replace:
 #Reason:
+#Result:
 
 ```
 ```
 #Example 7
+#Input:
 #Find:
 #Replace:
 #Reason:
+#Result:
 ```
 ```
 #Example 8
+#Input:
 #Find:
 #Replace:
 #Reason:
+#Result:
 ```
