@@ -321,11 +321,19 @@ new line start after .mp3
 0004 Walking Cane.mp3
 </code></pre>
 <pre><code>#Example 4
-#Input:
-#Find:
-#Replace:
-#Reason:
-#Result:
+#Input: 
+0001 Georgia Horseshoe.mp3
+0002 Billy In The Lowground.mp3
+0003 Winder Slide.mp3
+0004 Walking Cane.mp3
+#Find:(\d{4}) (\w*) (\w+)
+#Replace: (\2) (\3) (_\1)(\4)
+#Reason: with (\d{4}) I`m marking the 4 digit sequence as the first item of capture. Followed byt the first word (\w*) and following characters. Changed the order and added _. 
+#Result: 
+Georgia Horseshoe _0001.mp3
+Billy In _The Lowground _0002.mp3
+Winder Slide _0003.mp3
+Walking Cane _0004.mp3
 </code></pre>
 <pre><code>
 #Example 5
