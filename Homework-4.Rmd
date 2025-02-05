@@ -1,0 +1,59 @@
+---
+title: "Homework_4"
+author: "Juliana Dau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Problem 1
+```
+#a. 
+x = 1.1
+a = 2.2 
+b = 3.3
+z=x ^ (a^b)
+print(z)
+# result of z was 3.61714012551594
+
+b. 
+x = 1.1
+a = 2.2 
+b = 3.3
+z=(x^a) ^ b
+print(z)
+# result was 1.99761087775261
+
+c.
+x = 1.1
+a = 2.2 
+b = 3.3
+z= 3*(x^3) + 2*(x^2) + 1
+print(z)
+# result was 7.413
+
+```
+Problem 2
+```
+a.
+vector_a<-c(1:8,7:1)
+print(vector_a)
+#result:
+[1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1
+
+b. 
+vector_b <- rep(x=1:5,times=1:5)
+print(vector_b)
+#result:
+[1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
+
+c.
+vector_c <- rep(x=5:1,times=1:5)
+print(vector_c)
+#result:
+[1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1
+
+```
+Problem 3
