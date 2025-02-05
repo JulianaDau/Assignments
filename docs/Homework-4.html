@@ -320,6 +320,87 @@ print(vector_c)
 [1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1
 </code></pre>
 <p>Problem 3</p>
+<pre><code>
+library(ggplot2) 
+set.seed(2)
+z &lt;- runif(2) 
+qplot(x=z)
+x=0.185
+y=0.701
+r= sqrt(x^2+y^2)
+print(r)
+#result r was 0.7250007
+theta=atan(y/x)
+print(theta)
+#Result theta was 1.312771
+
+#observation that tan^1=atan function 
+</code></pre>
+<p>Problem 4</p>
+<pre><code>#General set up of the queue
+queue(z) 
+print(z)
+queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;)
+z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, ant&quot;=4)
+print(z2)
+#Result
+sheep   fox  owl ant 
+    1     2    4   3 
+    
+a. 
+queue(z) 
+print(z)
+queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;, &quot;serpent&quot;)
+z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
+print(z2)
+#Result
+  sheep     fox     owl     ant serpent 
+      1       2       3       4       5 
+b.
+z2 &lt;- c(&quot;fox&quot;=1, &quot;owl&quot;=2,  &quot;ant&quot;=3, &quot;serpent&quot;=4 )
+print(z2)
+#Result
+    fox     owl ant  serpent 
+      1      2    3       4 
+      
+c. 
+z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
+print(z2)
+#Result
+ donkey     fox   owl   ant    serpent 
+      1       2    3     4       5
+      
+d. 
+z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3)
+print(z2)
+#Result
+donkey    fox    ant 
+     1      2      3 
+e. 
+z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3, &quot;serpent&quot;=4 )
+print(z2)
+#Result
+sheep     fox     ant    serpent 
+      1       2       3       4
+      
+f.
+z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;aphid&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
+print(z2)
+#Result
+  sheep     fox   aphid     ant serpent 
+      1       2       3       4       5 
+      
+g.Third position 
+</code></pre>
+<p>Problem 5</p>
+<pre><code>x&lt;-1:100
+which(x%%2!=0 &amp; x%%3!=0 &amp; x%%7!=0)
+
+Result:
+ [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85 89 95 97
+
+
+</code></pre>
 
 
 

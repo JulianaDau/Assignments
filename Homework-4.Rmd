@@ -57,3 +57,92 @@ print(vector_c)
 
 ```
 Problem 3
+```
+
+library(ggplot2) 
+set.seed(2)
+z <- runif(2) 
+qplot(x=z)
+x=0.185
+y=0.701
+r= sqrt(x^2+y^2)
+print(r)
+#result r was 0.7250007
+theta=atan(y/x)
+print(theta)
+#Result theta was 1.312771
+
+#observation that tan^1=atan function 
+
+```
+Problem 4
+
+```
+#General set up of the queue
+queue(z) 
+print(z)
+queue <- c("sheep", "fox", "owl", "ant")
+z2 <- c("sheep"=1, "fox"=2, "owl"=3, ant"=4)
+print(z2)
+#Result
+sheep   fox  owl ant 
+    1     2    4   3 
+    
+a. 
+queue(z) 
+print(z)
+queue <- c("sheep", "fox", "owl", "ant", "serpent")
+z2 <- c("sheep"=1, "fox"=2, "owl"=3, "ant"=4, "serpent"=5 )
+print(z2)
+#Result
+  sheep     fox     owl     ant serpent 
+      1       2       3       4       5 
+b.
+z2 <- c("fox"=1, "owl"=2,  "ant"=3, "serpent"=4 )
+print(z2)
+#Result
+    fox     owl ant  serpent 
+      1      2    3       4 
+      
+c. 
+z2 <- c("donkey"=1, "fox"=2, "owl"=3, "ant"=4, "serpent"=5 )
+print(z2)
+#Result
+ donkey     fox   owl   ant    serpent 
+      1       2    3     4       5
+      
+d. 
+z2 <- c("donkey"=1, "fox"=2, "ant"=3)
+print(z2)
+#Result
+donkey    fox    ant 
+     1      2      3 
+e. 
+z2 <- c("sheep"=1, "fox"=2, "ant"=3, "serpent"=4 )
+print(z2)
+#Result
+sheep     fox     ant    serpent 
+      1       2       3       4
+      
+f.
+z2 <- c("sheep"=1, "fox"=2, "aphid"=3, "ant"=4, "serpent"=5 )
+print(z2)
+#Result
+  sheep     fox   aphid     ant serpent 
+      1       2       3       4       5 
+      
+g.Third position 
+
+```
+Problem 5 
+```
+x<-1:100
+which(x%%2!=0 & x%%3!=0 & x%%7!=0)
+
+Result:
+ [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85 89 95 97
+
+
+
+```
+
