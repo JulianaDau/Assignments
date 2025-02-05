@@ -129,6 +129,28 @@ z[-(length(z):(length(z)-2))]
 names(z) <- letters[1:5]
 z[c("b","c")]
 
+# <   less than
+# >   greater than
+# <=  less than or equal to
+# >=  greater than or equal to
+# ==  equal to
+
+# ! not
+# & and (vector)
+# | or (vector)
+# xor(x,y)
+# xor works only if one of the statements is TRUE
+
+
+x <-1:5
+y <-c(1:3,7,7)
+
+x == 2
+x != 2
+
+
+
+
 
 
 
