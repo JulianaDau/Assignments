@@ -9,3 +9,8 @@ shuffled_vector <- sample(my_vec)
 print(shuffled_vector) 
 m <- matrix(data=my_vec,nrow=5)
 print(m)
+my_matrix=matrix(data=my_vec,nrow=5)
+transposed_matrix <- t(my_matrix)
+print(transposed_matrix)
+
+
