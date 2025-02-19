@@ -9,11 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 Problem 1 
-```
-#will give the single random interger between 1 and 10 
->n_dims <- sample(3:10,1)
->print(n_dims)
 
+#will give the single random interger between 1 and 10 
+```{r}
+n_dims <- sample(3:10,1)
+print(n_dims)
+```
+```
 #based on that wrote a general function to get a vector of consecutive integers from 1 to n_dims2
 >my_vec <- seq(from=1, to=n_dims^2)
 >print(my_vec)
@@ -146,6 +148,13 @@ The folowing code written as bellow enable it to be re-run. Changed nrows=n_dims
 
 ```
 Problem 2
-```
 
+```
+#Create a list with the following named elements:
+#my_matrix, which is a 4 x 4 matrix filled with random uniform values
+
+```
+```{r}
+my_matrix=matrix(runif(16),nrow=4,ncol=4)
+print(my_matrix)
 ```
