@@ -9,56 +9,55 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 Problem 1
-```
+
 #a. 
+```{r}
 x = 1.1
 a = 2.2 
 b = 3.3
 z=x ^ (a^b)
 print(z)
 # result of z was 3.61714012551594
-
-b. 
+```
+#b
+```{r}
+ 
 x = 1.1
 a = 2.2 
 b = 3.3
 z=(x^a) ^ b
 print(z)
-# result was 1.99761087775261
+```
 
-c.
+#c.
+```{r}
 x = 1.1
 a = 2.2 
 b = 3.3
 z= 3*(x^3) + 2*(x^2) + 1
 print(z)
-# result was 7.413
 
 ```
 Problem 2
-```
-a.
+#a
+```{r}
+
 vector_a<-c(1:8,7:1)
 print(vector_a)
-#result:
-[1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1
-
-b. 
+```
+#b
+```{r}
 vector_b <- rep(x=1:5,times=1:5)
 print(vector_b)
-#result:
-[1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
+```
 
-c.
+```{r}
 vector_c <- rep(x=5:1,times=1:5)
 print(vector_c)
-#result:
-[1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1
 
 ```
 Problem 3
-```
-
+```{r}
 library(ggplot2) 
 set.seed(2)
 z <- runif(2) 
@@ -67,82 +66,60 @@ x=0.185
 y=0.701
 r= sqrt(x^2+y^2)
 print(r)
-#result r was 0.7250007
 theta=atan(y/x)
 print(theta)
-#Result theta was 1.312771
 
+```
 #observation that tan^1=atan function 
 
-```
-Problem 4
+# Problem 4
+# General set up of the queue
+
+```{r}
+queue <- c("sheep", "fox", "owl", "ant")
+z2 <- c("sheep"=1, "fox"=2, "owl"=3, "ant"=4)
+
+print(z2)
 
 ```
-#General set up of the queue
-queue(z) 
-print(z)
-queue <- c("sheep", "fox", "owl", "ant")
-z2 <- c("sheep"=1, "fox"=2, "owl"=3, ant"=4)
-print(z2)
-#Result
-sheep   fox  owl ant 
-    1     2    4   3 
-    
-a. 
-queue(z) 
-print(z)
+#a
+```{r}
 queue <- c("sheep", "fox", "owl", "ant", "serpent")
 z2 <- c("sheep"=1, "fox"=2, "owl"=3, "ant"=4, "serpent"=5 )
 print(z2)
-#Result
-  sheep     fox     owl     ant serpent 
-      1       2       3       4       5 
-b.
+```
+
+#b
+```{r}
 z2 <- c("fox"=1, "owl"=2,  "ant"=3, "serpent"=4 )
 print(z2)
-#Result
-    fox     owl ant  serpent 
-      1      2    3       4 
-      
-c. 
+```
+#c
+```{r}
 z2 <- c("donkey"=1, "fox"=2, "owl"=3, "ant"=4, "serpent"=5 )
 print(z2)
-#Result
- donkey     fox   owl   ant    serpent 
-      1       2    3     4       5
-      
-d. 
+```
+#d
+```{r}
 z2 <- c("donkey"=1, "fox"=2, "ant"=3)
 print(z2)
-#Result
-donkey    fox    ant 
-     1      2      3 
-e. 
+```
+#e
+```{r}
 z2 <- c("sheep"=1, "fox"=2, "ant"=3, "serpent"=4 )
 print(z2)
-#Result
-sheep     fox     ant    serpent 
-      1       2       3       4
-      
-f.
+```
+#f
+```{r}
 z2 <- c("sheep"=1, "fox"=2, "aphid"=3, "ant"=4, "serpent"=5 )
 print(z2)
-#Result
-  sheep     fox   aphid     ant serpent 
-      1       2       3       4       5 
-      
-g.Third position 
-
 ```
-Problem 5 
+#g
+```{r}
+# Third position 
 ```
+# Problem 5.
+```{r}
 x<-1:100
 which(x%%2!=0 & x%%3!=0 & x%%7!=0)
-
-Result:
- [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85 89 95 97
-
-
-
 ```
-

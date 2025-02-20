@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-02-12" />
+<meta name="date" content="2025-02-19" />
 
 <title>Homework_4</title>
 
@@ -270,137 +270,117 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Homework_4</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-02-12</h4>
+<h4 class="date">2025-02-19</h4>
 
 </div>
 
 
 <p>Problem 1</p>
-<pre><code>#a. 
-x = 1.1
+<p>#a.</p>
+<pre class="r"><code>x = 1.1
 a = 2.2 
 b = 3.3
 z=x ^ (a^b)
-print(z)
-# result of z was 3.61714012551594
-
-b. 
-x = 1.1
+print(z)</code></pre>
+<pre><code>## [1] 3.61714</code></pre>
+<pre class="r"><code># result of z was 3.61714012551594</code></pre>
+<p>#b</p>
+<pre class="r"><code>x = 1.1
 a = 2.2 
 b = 3.3
 z=(x^a) ^ b
-print(z)
-# result was 1.99761087775261
-
-c.
-x = 1.1
+print(z)</code></pre>
+<pre><code>## [1] 1.997611</code></pre>
+<p>#c.</p>
+<pre class="r"><code>x = 1.1
 a = 2.2 
 b = 3.3
 z= 3*(x^3) + 2*(x^2) + 1
-print(z)
-# result was 7.413
-</code></pre>
-<p>Problem 2</p>
-<pre><code>a.
-vector_a&lt;-c(1:8,7:1)
-print(vector_a)
-#result:
-[1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1
-
-b. 
-vector_b &lt;- rep(x=1:5,times=1:5)
-print(vector_b)
-#result:
-[1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
-
-c.
-vector_c &lt;- rep(x=5:1,times=1:5)
-print(vector_c)
-#result:
-[1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1
-</code></pre>
+print(z)</code></pre>
+<pre><code>## [1] 7.413</code></pre>
+<p>Problem 2 #a</p>
+<pre class="r"><code>vector_a&lt;-c(1:8,7:1)
+print(vector_a)</code></pre>
+<pre><code>##  [1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1</code></pre>
+<p>#b</p>
+<pre class="r"><code>vector_b &lt;- rep(x=1:5,times=1:5)
+print(vector_b)</code></pre>
+<pre><code>##  [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5</code></pre>
+<pre class="r"><code>vector_c &lt;- rep(x=5:1,times=1:5)
+print(vector_c)</code></pre>
+<pre><code>##  [1] 5 4 4 3 3 3 2 2 2 2 1 1 1 1 1</code></pre>
 <p>Problem 3</p>
-<pre><code>
-library(ggplot2) 
+<pre class="r"><code>library(ggplot2) 
 set.seed(2)
 z &lt;- runif(2) 
-qplot(x=z)
-x=0.185
+qplot(x=z)</code></pre>
+<pre><code>## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Homework-4_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>x=0.185
 y=0.701
 r= sqrt(x^2+y^2)
-print(r)
-#result r was 0.7250007
-theta=atan(y/x)
-print(theta)
-#Result theta was 1.312771
+print(r)</code></pre>
+<pre><code>## [1] 0.7250007</code></pre>
+<pre class="r"><code>theta=atan(y/x)
+print(theta)</code></pre>
+<pre><code>## [1] 1.312771</code></pre>
+<p>#observation that tan^1=atan function</p>
+<div id="problem-4" class="section level1">
+<h1>Problem 4</h1>
+</div>
+<div id="general-set-up-of-the-queue" class="section level1">
+<h1>General set up of the queue</h1>
+<pre class="r"><code>queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;)
+z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4)
 
-#observation that tan^1=atan function 
-</code></pre>
-<p>Problem 4</p>
-<pre><code>#General set up of the queue
-queue(z) 
-print(z)
-queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;)
-z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, ant&quot;=4)
-print(z2)
-#Result
-sheep   fox  owl ant 
-    1     2    4   3 
-    
-a. 
-queue(z) 
-print(z)
-queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;, &quot;serpent&quot;)
+print(z2)</code></pre>
+<pre><code>## sheep   fox   owl   ant 
+##     1     2     3     4</code></pre>
+<p>#a</p>
+<pre class="r"><code>queue &lt;- c(&quot;sheep&quot;, &quot;fox&quot;, &quot;owl&quot;, &quot;ant&quot;, &quot;serpent&quot;)
 z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
-print(z2)
-#Result
-  sheep     fox     owl     ant serpent 
-      1       2       3       4       5 
-b.
-z2 &lt;- c(&quot;fox&quot;=1, &quot;owl&quot;=2,  &quot;ant&quot;=3, &quot;serpent&quot;=4 )
-print(z2)
-#Result
-    fox     owl ant  serpent 
-      1      2    3       4 
-      
-c. 
-z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
-print(z2)
-#Result
- donkey     fox   owl   ant    serpent 
-      1       2    3     4       5
-      
-d. 
-z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3)
-print(z2)
-#Result
-donkey    fox    ant 
-     1      2      3 
-e. 
-z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3, &quot;serpent&quot;=4 )
-print(z2)
-#Result
-sheep     fox     ant    serpent 
-      1       2       3       4
-      
-f.
-z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;aphid&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
-print(z2)
-#Result
-  sheep     fox   aphid     ant serpent 
-      1       2       3       4       5 
-      
-g.Third position 
-</code></pre>
-<p>Problem 5</p>
-<pre><code>x&lt;-1:100
-which(x%%2!=0 &amp; x%%3!=0 &amp; x%%7!=0)
-
-Result:
- [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85 89 95 97
-
-
-</code></pre>
+print(z2)</code></pre>
+<pre><code>##   sheep     fox     owl     ant serpent 
+##       1       2       3       4       5</code></pre>
+<p>#b</p>
+<pre class="r"><code>z2 &lt;- c(&quot;fox&quot;=1, &quot;owl&quot;=2,  &quot;ant&quot;=3, &quot;serpent&quot;=4 )
+print(z2)</code></pre>
+<pre><code>##     fox     owl     ant serpent 
+##       1       2       3       4</code></pre>
+<p>#c</p>
+<pre class="r"><code>z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;owl&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
+print(z2)</code></pre>
+<pre><code>##  donkey     fox     owl     ant serpent 
+##       1       2       3       4       5</code></pre>
+<p>#d</p>
+<pre class="r"><code>z2 &lt;- c(&quot;donkey&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3)
+print(z2)</code></pre>
+<pre><code>## donkey    fox    ant 
+##      1      2      3</code></pre>
+<p>#e</p>
+<pre class="r"><code>z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;ant&quot;=3, &quot;serpent&quot;=4 )
+print(z2)</code></pre>
+<pre><code>##   sheep     fox     ant serpent 
+##       1       2       3       4</code></pre>
+<p>#f</p>
+<pre class="r"><code>z2 &lt;- c(&quot;sheep&quot;=1, &quot;fox&quot;=2, &quot;aphid&quot;=3, &quot;ant&quot;=4, &quot;serpent&quot;=5 )
+print(z2)</code></pre>
+<pre><code>##   sheep     fox   aphid     ant serpent 
+##       1       2       3       4       5</code></pre>
+<p>#g</p>
+<pre class="r"><code># Third position </code></pre>
+</div>
+<div id="problem-5." class="section level1">
+<h1>Problem 5.</h1>
+<pre class="r"><code>x&lt;-1:100
+which(x%%2!=0 &amp; x%%3!=0 &amp; x%%7!=0)</code></pre>
+<pre><code>##  [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85
+## [26] 89 95 97</code></pre>
+</div>
 
 
 
