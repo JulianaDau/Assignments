@@ -19,6 +19,12 @@ ev <- eigen(my_matrix)
 (vectors <- ev$vectors)
 typeof(ev$values)
 typeof(ev$vectors)
-```
+
 my_matrix=matrix(runif(16),nrow=4,ncol=4)
 print(my_matrix)
+
+my_numbers <- c(1:100)
+print(my_numbers)
+my_logical <- sample(c(TRUE, FALSE), size = 100, replace = TRUE, prob = c(0.5, 0.5)) 
+print(my_logical)
+

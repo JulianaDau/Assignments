@@ -96,3 +96,51 @@ typeof(values)
 my_matrix=matrix(runif(16),nrow=4,ncol=4)
 print(my_matrix)
 ```
+#my_logical which is a 100-element vector of TRUE or FALSE values. Do this efficiently by setting up a vector of random values and then applying an inequality to it.
+```{r}
+my_logical <- sample(c(TRUE, FALSE), size = 100, replace = TRUE, prob = c(0.5, 0.5)) 
+print(my_logical)
+```
+#my_letters, which is a 26-element vector of all the lower-case letters in random order.
+```{r}
+my_letters <- sample(letters, 26) 
+print(my_letters)
+```
+#create a new list, which has the element[2,2] from the matrix, the second element of the logical vector, and the second element of the letters vector.
+```{r}
+my_list <- list(my_matrix,
+                my_logical,
+                my_letters)
+my_list <- list(my_matrix[[2,2]], my_logical[2], my_letters[2])
+print(my_list)
+
+```
+#use the typeof() function to confirm the underlying data types of each component in this list
+```{r}
+type_my_matrix <- typeof(my_matrix[[2,2]])
+print(type_my_matrix)
+type_my_logical <- typeof(my_logical[2])
+print(type_my_logical)
+type_my_letters <- typeof(my_letters[2])
+print(type_my_letters)
+
+```
+#combine the underlying elements from the new list into a single atomic vector with the c() function.
+
+```{r}
+vector2 <- c(my_matrix[[2,2]],my_logical[2],my_letters[2])
+print(vector2)
+
+```
+#what is the data type of this vector?
+```{r}
+typeof(vector2)
+```
+
+# Problem 3.
+# Create a data frame with the two variables (= columns) and 26 cases (= rows) below:
+
+$ Call the first variable my_unis and fill it with 26 random uniform values from 0 to 10
+```{r}
+
+```
