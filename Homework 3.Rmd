@@ -133,9 +133,35 @@ Lasneo, 55, 3.3
 ```
 ```
 #Example 8
-#Input:
-#Find:
-#Replace:
-#Reason:
-#Result:
+1. Start fiding: [^a-zA-Z0-9/,\.\s] 
+Replace: leave the space empty to cut all the characters that don`t match.
+
+In this find ^ is used as a negation meaning that anything that is not lower-case letters (a-z), uppercase letters(A-Z), number from 0 to 9, comma (\,), dot (\.) and a single space, tab, or line break (\s) will be found. Which means that basically only the undesirable characters will be found ($,*,!, etc...) and replaced
+
+2.In pathogen binary since thre format required is binary it should be represented as 0 or 1. Since 1 was represented in the data will presume that NA is wrongly in place of 0. 
+Find: NA
+Replace:0
+Final result:
+id,targetname,pathogenbinary,samplingdate,sitecode,fieldid,bombusspp,hostplant,beecaste,samplingevent,pathogenload
+1,BQCV,1,9/9/2020,BOST,6,impatiens,solidago,worker ,4,2414168.805
+3,BQCV,0,9/10/2020,MUDGE,18,impatiens,crown vetch,worker ,4,760793.2324
+4,BQCV,0,9/10/2020,MUDGE,11,impatiens,crown vetch,worker,4,0
+5,BQCV,0,9/9/2020,BOST,11,impatiens,solidago,male ,4,0
+6,BQCV,0,9/10/2020,CIND,14,impatiens,knot weed,worker ,4,124236.7921
+8,BQCV,0,9/10/2020,MUDGE,4,impatiens,crown vetch,worker,4,413814.5638
+10,BQCV,1,9/10/2020,CIND,13,impatiens,red clover,worker,4,1028831.605
+11,BQCV,0,7/7/2020,BOST,38,impatiens,red clover,worker,2,307696378.8
+12,BQCV,0,9/10/2020,MUDGE,5,impatiens,crown vetch,worker,4,0
+13,BQCV,1,9/9/2020,BOST,12,impatiens,solidago,male,4,311873.0526
+15,BQCV,0,9/9/2020,BOST,18,impatiens,solidago,worker ,4,0
+16,BQCV,0,9/9/2020,BOST,23,impatiens,solidago,male,4,1674951.391
+17,BQCV,0,9/10/2020,CIND,20,impatiens,red clover,worker,4,3214026.976
+18,BQCV,1,9/10/2020,CIND,11,impatiens,birdsfoot,worker ,4,995592.63
+19,BQCV,0,9/10/2020,CIND,17,impatiens,red clover,worker,4,0
+20,BQCV,1,9/10/2020,CIND,16,impatiens,red clover,worker,4,200804.8542
+21,BQCV,1,9/9/2020,BOST,17,impatiens,solidago,worker ,4,228085.8104
+22,BQCV,1,9/9/2020,BOST,7,impatiens,solidago,worker,4,7261151.315
+23,BQCV,0,7/7/2020,COL,22,impatiens,red clover,worker ,2,817906.8276
+24,BQCV,1,7/7/2020,BOST,45,impatiens,red clover,worker,2,858658.6884
+
 ```

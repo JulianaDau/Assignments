@@ -40,3 +40,5 @@ zz <- 5
 for (i in seq_len(zz)){
   cat("i =",i,"my_dogs[i] =" ,my_dogs[i],"\n")
 }
+
+

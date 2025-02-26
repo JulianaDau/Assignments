@@ -28,3 +28,38 @@ print(my_numbers)
 my_logical <- sample(c(TRUE, FALSE), size = 100, replace = TRUE, prob = c(0.5, 0.5)) 
 print(my_logical)
 
+my_letters <- sample(letters, 26) 
+print(my_letters)
+
+my_list<-my_list[[2,2]]
+
+my_list <- list(matrix(runif(16),nrow=4,ncol=4))
+str(my_list)
+print(my_list)
+my_list [2,2]
+print (my_list)
+
+my_list <- list(matrix(runif(16),nrow=4,ncol=4))
+str(my_list)
+mylist <- as.list(1:16)
+mylist[[2]] 
+print(mylist)
+
+my_list <- list(my_matrix <- matrix(runif(16),nrow=4), 
+                my_logical <- runif(100)<0.5, 
+                my_letters <- sample(x=letters, size=26))
+mylist <- list(my_matrix[[2,2]], my_logical[2], my_letters[2])
+print(mylist)
+
+my_list <- list(my_matrix,
+                my_logical,
+                my_letters)
+mylist <- typeof(list(my_matrix,
+                     my_logical,
+                     my_letters))
+print(mylist)
+
+vector2 <- c(my_matrix[[2,2]],my_logical[2],my_letters[2])
+print(vector2)
+
+typeof(vector2)
