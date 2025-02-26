@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-02-25" />
+<meta name="date" content="2025-02-26" />
 
 <title>Homework-5</title>
 
@@ -270,7 +270,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Homework-5</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-02-25</h4>
+<h4 class="date">2025-02-26</h4>
 
 </div>
 
@@ -283,7 +283,7 @@ class="section level1">
 <h1>Will give the single random interger between 1 and 10.</h1>
 <pre class="r"><code>n_dims &lt;- sample(3:10,1)
 print(n_dims)</code></pre>
-<pre><code>## [1] 6</code></pre>
+<pre><code>## [1] 4</code></pre>
 </div>
 <div
 id="based-on-that-write-a-general-function-to-get-a-vector-of-consecutive-integers-from-1-to-n_dims2."
@@ -292,8 +292,7 @@ class="section level1">
 consecutive integers from 1 to n_dims2.</h1>
 <pre class="r"><code>my_vec &lt;- seq(from=1, to=n_dims^2)
 print(my_vec)</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
-## [26] 26 27 28 29 30 31 32 33 34 35 36</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16</code></pre>
 <pre><code># Since it was random when n_dims result was 3 the my_vec result was:
 [1] 1 2 3 4 5 6 7 8 9
 #When n_dims result was 9 the my_vec result was:
@@ -306,8 +305,7 @@ class="section level1">
 <h1>Use the sample function to randomly reshuffle these values.</h1>
 <pre class="r"><code>shuffled_vector &lt;- sample(my_vec) 
 print(shuffled_vector) </code></pre>
-<pre><code>##  [1] 32 17 36 25 31 14 15 16 29 12 11 28 19  7  8  1 23 35 30 34 24 10  5 21  9
-## [26]  3 33 26 27  2  4 13 18  6 22 20</code></pre>
+<pre><code>##  [1]  3  4  1 16 10  2 15  6 14 13  8  5  9 12 11  7</code></pre>
 </div>
 <div
 id="create-a-square-matrix-with-these-elements.print-out-the-matrix."
@@ -316,25 +314,21 @@ class="section level1">
 matrix.</h1>
 <pre class="r"><code>m &lt;- matrix(data=my_vec,nrow=n_dims)
 print(m)</code></pre>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]    1    7   13   19   25   31
-## [2,]    2    8   14   20   26   32
-## [3,]    3    9   15   21   27   33
-## [4,]    4   10   16   22   28   34
-## [5,]    5   11   17   23   29   35
-## [6,]    6   12   18   24   30   36</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    5    9   13
+## [2,]    2    6   10   14
+## [3,]    3    7   11   15
+## [4,]    4    8   12   16</code></pre>
 <p>Find a function in r to transpose the matrix.print it out again and
 note how it has changed.</p>
 <pre class="r"><code>my_matrix=matrix(data=my_vec,nrow=n_dims)
 transposed_matrix &lt;- t(my_matrix)
 print(transposed_matrix)</code></pre>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]    1    2    3    4    5    6
-## [2,]    7    8    9   10   11   12
-## [3,]   13   14   15   16   17   18
-## [4,]   19   20   21   22   23   24
-## [5,]   25   26   27   28   29   30
-## [6,]   31   32   33   34   35   36</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12
+## [4,]   13   14   15   16</code></pre>
 </div>
 <div
 id="calculate-the-sum-and-the-mean-of-the-elements-in-the-first-row-and-then-the-last-row.-assuming-that-the-desired-result-is-of-the-transposed-matrix"
@@ -344,16 +338,16 @@ then the last row. Assuming that the desired result is of the transposed
 matrix:</h1>
 <pre class="r"><code>first_row_sum &lt;- sum(transposed_matrix[1,])
 print(first_row_sum)</code></pre>
-<pre><code>## [1] 21</code></pre>
+<pre><code>## [1] 10</code></pre>
 <pre class="r"><code>first_row_mean &lt;- mean(transposed_matrix[1,]) 
 print(first_row_mean)</code></pre>
-<pre><code>## [1] 3.5</code></pre>
+<pre><code>## [1] 2.5</code></pre>
 <pre class="r"><code>last_row_sum &lt;- sum(transposed_matrix[n_dims,])
 print (last_row_sum)</code></pre>
-<pre><code>## [1] 201</code></pre>
+<pre><code>## [1] 58</code></pre>
 <pre class="r"><code>last_row_mean &lt;- mean(transposed_matrix[n_dims,])
 print(last_row_mean)</code></pre>
-<pre><code>## [1] 33.5</code></pre>
+<pre><code>## [1] 14.5</code></pre>
 </div>
 <div id="read-about-the-eigen-function-and-use-it-on-your-matrix."
 class="section level1">
@@ -366,32 +360,21 @@ class="section level1">
 output. What kind of numbers are these?</h1>
 <pre class="r"><code>ev &lt;- eigen(transposed_matrix)
 (values &lt;- ev$values)</code></pre>
-<pre><code>## [1]  1.164118e+02+0.000000e+00i -5.411822e+00+0.000000e+00i
-## [3] -4.852713e-15+0.000000e+00i -1.455102e-15+1.653662e-15i
-## [5] -1.455102e-15-1.653662e-15i  1.027683e-15+0.000000e+00i</code></pre>
+<pre><code>## [1]  3.620937e+01 -2.209373e+00 -3.188632e-15 -1.348401e-16</code></pre>
 <pre class="r"><code>(vectors &lt;- ev$vectors)</code></pre>
-<pre><code>##               [,1]           [,2]           [,3]                     [,4]
-## [1,] 0.08190341+0i -0.63110943+0i  0.52312493+0i  0.26358926-0.128973608i
-## [2,] 0.19353989+0i -0.39298443+0i -0.78927301+0i -0.73313554+0.000000000i
-## [3,] 0.30517638+0i -0.15485944+0i  0.25711646+0i  0.28472661+0.315414352i
-## [4,] 0.41681286+0i  0.08326555+0i -0.15455248+0i  0.35945050-0.120476859i
-## [5,] 0.52844934+0i  0.32139055+0i  0.07922298+0i  0.04151506-0.060421299i
-## [6,] 0.64008582+0i  0.55951554+0i  0.08436112+0i -0.21614588-0.005542586i
-##                          [,5]          [,6]
-## [1,]  0.26358926+0.128973608i -0.1817285+0i
-## [2,] -0.73313554+0.000000000i -0.1815925+0i
-## [3,]  0.28472661-0.315414352i  0.5474542+0i
-## [4,]  0.35945050+0.120476859i  0.3451766+0i
-## [5,]  0.04151506+0.060421299i -0.6977031+0i
-## [6,] -0.21614588+0.005542586i  0.1683934+0i</code></pre>
+<pre><code>##            [,1]       [,2]       [,3]        [,4]
+## [1,] -0.1511543  0.7270500  0.5037002 -0.06456091
+## [2,] -0.3492373  0.2832088 -0.8319577 -0.31932112
+## [3,] -0.5473203 -0.1606324  0.1528148  0.83232496
+## [4,] -0.7454033 -0.6044736  0.1754427 -0.44844294</code></pre>
 </div>
 <div id="dig-in-with-the-typeof-function-to-figure-out-their-type."
 class="section level1">
 <h1>Dig in with the typeof() function to figure out their type.</h1>
 <pre class="r"><code>typeof(vectors)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
 <pre class="r"><code>typeof(values)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
 </div>
 <div
 id="checked-and-was-able-to-re-run-it-and-create-a-matrix-of-different-size-because-n_dims-will-change."
@@ -405,31 +388,31 @@ size because n_dims will change.</h1>
 is a 4 x 4 matrix filled with random uniform values</p>
 <pre class="r"><code>my_matrix=matrix(runif(16),nrow=4,ncol=4)
 print(my_matrix)</code></pre>
-<pre><code>##           [,1]      [,2]       [,3]      [,4]
-## [1,] 0.6905011 0.3452765 0.72203550 0.3411511
-## [2,] 0.4454846 0.5822278 0.08994477 0.6491444
-## [3,] 0.7911380 0.8515179 0.35516085 0.9144127
-## [4,] 0.4406292 0.6328260 0.77234775 0.9901893</code></pre>
+<pre><code>##           [,1]      [,2]      [,3]       [,4]
+## [1,] 0.5050160 0.2076855 0.8111665 0.84708589
+## [2,] 0.7753755 0.8763322 0.9192118 0.31731919
+## [3,] 0.9848489 0.3402350 0.4162937 0.09165289
+## [4,] 0.1044849 0.3970975 0.0632587 0.65683708</code></pre>
 <p>#my_logical which is a 100-element vector of TRUE or FALSE values. Do
 this efficiently by setting up a vector of random values and then
 applying an inequality to it.</p>
 <pre class="r"><code>my_logical &lt;- sample(c(TRUE, FALSE), size = 100, replace = TRUE, prob = c(0.5, 0.5)) 
 print(my_logical)</code></pre>
-<pre><code>##   [1] FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE
-##  [13] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE
-##  [25]  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE
-##  [37]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
-##  [49] FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-##  [61]  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
-##  [73]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE
-##  [85]  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
-##  [97] FALSE  TRUE  TRUE FALSE</code></pre>
+<pre><code>##   [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [13] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE
+##  [25] FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
+##  [37] FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE
+##  [49] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
+##  [61] FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+##  [73]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+##  [85]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE
+##  [97]  TRUE FALSE  TRUE FALSE</code></pre>
 <p>#my_letters, which is a 26-element vector of all the lower-case
 letters in random order.</p>
 <pre class="r"><code>my_letters &lt;- sample(letters, 26) 
 print(my_letters)</code></pre>
-<pre><code>##  [1] &quot;r&quot; &quot;l&quot; &quot;q&quot; &quot;t&quot; &quot;g&quot; &quot;i&quot; &quot;m&quot; &quot;e&quot; &quot;z&quot; &quot;v&quot; &quot;j&quot; &quot;u&quot; &quot;w&quot; &quot;p&quot; &quot;k&quot; &quot;d&quot; &quot;n&quot; &quot;h&quot; &quot;f&quot;
-## [20] &quot;c&quot; &quot;s&quot; &quot;b&quot; &quot;a&quot; &quot;x&quot; &quot;y&quot; &quot;o&quot;</code></pre>
+<pre><code>##  [1] &quot;c&quot; &quot;s&quot; &quot;i&quot; &quot;j&quot; &quot;q&quot; &quot;k&quot; &quot;n&quot; &quot;l&quot; &quot;y&quot; &quot;z&quot; &quot;b&quot; &quot;o&quot; &quot;g&quot; &quot;d&quot; &quot;m&quot; &quot;a&quot; &quot;e&quot; &quot;w&quot; &quot;r&quot;
+## [20] &quot;v&quot; &quot;t&quot; &quot;h&quot; &quot;x&quot; &quot;u&quot; &quot;p&quot; &quot;f&quot;</code></pre>
 <p>#create a new list, which has the element[2,2] from the matrix, the
 second element of the logical vector, and the second element of the
 letters vector.</p>
@@ -439,13 +422,13 @@ letters vector.</p>
 my_list &lt;- list(my_matrix[[2,2]], my_logical[2], my_letters[2])
 print(my_list)</code></pre>
 <pre><code>## [[1]]
-## [1] 0.5822278
+## [1] 0.8763322
 ## 
 ## [[2]]
-## [1] TRUE
+## [1] FALSE
 ## 
 ## [[3]]
-## [1] &quot;l&quot;</code></pre>
+## [1] &quot;s&quot;</code></pre>
 <p>#use the typeof() function to confirm the underlying data types of
 each component in this list</p>
 <pre class="r"><code>type_my_matrix &lt;- typeof(my_matrix[[2,2]])
@@ -461,7 +444,7 @@ print(type_my_letters)</code></pre>
 atomic vector with the c() function.</p>
 <pre class="r"><code>vector2 &lt;- c(my_matrix[[2,2]],my_logical[2],my_letters[2])
 print(vector2)</code></pre>
-<pre><code>## [1] &quot;0.582227847073227&quot; &quot;TRUE&quot;              &quot;l&quot;</code></pre>
+<pre><code>## [1] &quot;0.876332234824076&quot; &quot;FALSE&quot;             &quot;s&quot;</code></pre>
 <p>#what is the data type of this vector?</p>
 <pre class="r"><code>typeof(vector2)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
@@ -474,8 +457,44 @@ id="create-a-data-frame-with-the-two-variables-columns-and-26-cases-rows-below"
 class="section level1">
 <h1>Create a data frame with the two variables (= columns) and 26 cases
 (= rows) below:</h1>
-<p>$ Call the first variable my_unis and fill it with 26 random uniform
-values from 0 to 10</p>
+<p>#Call the first variable my_unis and fill it with 26 random uniform
+values from 0 to 10 #Call the second variable my_letters and fill it
+with 26 capital letters in random order</p>
+<pre class="r"><code>my_units &lt;- runif(n=26, min=0, max=10)
+my_letters &lt;- rep(c(letters))
+d_frame &lt;- data.frame(my_units,my_letters)
+print(d_frame)</code></pre>
+<pre><code>##     my_units my_letters
+## 1  0.6894747          a
+## 2  0.9908001          b
+## 3  9.3061804          c
+## 4  0.9293040          d
+## 5  0.0778678          e
+## 6  5.2873502          f
+## 7  6.9400763          g
+## 8  2.9756914          h
+## 9  7.2423858          i
+## 10 5.7630792          j
+## 11 5.6388894          k
+## 12 9.8023336          l
+## 13 1.8709118          m
+## 14 5.1904531          n
+## 15 6.9140886          o
+## 16 7.6511764          p
+## 17 4.8799898          q
+## 18 5.7779361          r
+## 19 0.0993213          s
+## 20 5.3080047          t
+## 21 7.1260493          u
+## 22 1.4176537          v
+## 23 9.1735736          w
+## 24 0.5705208          x
+## 25 9.9309585          y
+## 26 0.7506348          z</code></pre>
+<pre class="r"><code>str(d_frame)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    26 obs. of  2 variables:
+##  $ my_units  : num  0.6895 0.9908 9.3062 0.9293 0.0779 ...
+##  $ my_letters: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...</code></pre>
 </div>
 
 

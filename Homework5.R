@@ -63,3 +63,14 @@ vector2 <- c(my_matrix[[2,2]],my_logical[2],my_letters[2])
 print(vector2)
 
 typeof(vector2)
+
+
+my_units <- runif(n=26, min=0, max=10)
+my_letters <- rep(c(letters))
+d_frame <- data.frame(my_units,my_letters)
+print(d_frame)
+str(d_frame)
+
+
+
+
