@@ -144,9 +144,41 @@ typeof(vector2)
 #Call the second variable my_letters and fill it with 26 capital letters in random order
 ```{r}
 my_units <- runif(n=26, min=0, max=10)
-my_letters <- rep(c(letters))
+my_letters <- sample(LETTERS, size = 26)
 d_frame <- data.frame(my_units,my_letters)
 print(d_frame)
 str(d_frame)
+
+```
+#For the first variable, use a single line of code in R to select 4 random rows and replace the numerical values in those rows with NA.
+```{r}
+
+d_frame[sample(x=1:26,4),1] <- NA
+print(d_frame)
+
+```
+
+#For the first variable, write a single line of R code to identify which rows have the missing values.
+
+```{R}
+which(is.na(d_frame), arr.ind=TRUE)
+
+```
+
+#Re-order the entire data frame to arrange the second variable in alphabetical order
+
+```{R}
+my_units <- runif(n=26, min=0, max=10)
+my_letters <- rep(c(LETTERS))
+d_frame <- data.frame(my_units,my_letters)
+print(d_frame)
+
+```
+
+#Calculate the column mean for the first variable.
+
+```{R}
+
+mean(d_frame[, 1])
 
 ```

@@ -71,6 +71,18 @@ d_frame <- data.frame(my_units,my_letters)
 print(d_frame)
 str(d_frame)
 
+d_frame <- replace_with_na_at(my_units)
 
+d_frame[sample(x=1:26,4),1] <- NA
+print(d_frame)
 
+d_frame[is.na()]
+is.na(d_frame)
+is.na()
 
+is.na()
+
+which(is.na(d_frame), arr.ind=TRUE)
+
+mean(d_frame[, 1])
+print(d_frame)
