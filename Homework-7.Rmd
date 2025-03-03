@@ -88,4 +88,9 @@ print(irisFinal)
   
 ```
 #9. Create a ‘longer’ data frame using the original iris data set with three columns named “Species”, “Measure”, “Value”. The column “Species” will retain the species names of the data set. The column “Measure” will include whether the value corresponds to Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column “Value” will include the numerical values of those measurements.
-
+```{r}
+iris %>%
+  pivot_longer(cols=Sepal.Length:Sepal.Width:Petal.Length:Petal.Width,
+               names_to = "Measure",
+               values_to= "Value")
+```

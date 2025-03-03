@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-03-02" />
+<meta name="date" content="2025-03-03" />
 
 <title>Homework-7</title>
 
@@ -270,7 +270,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Homework-7</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-03-02</h4>
+<h4 class="date">2025-03-03</h4>
 
 </div>
 
@@ -697,6 +697,26 @@ with three columns named “Species”, “Measure”, “Value”. The column
 “Measure” will include whether the value corresponds to Sepal.Length,
 Sepal.Width, Petal.Length, or Petal.Width and the column “Value” will
 include the numerical values of those measurements.</p>
+<pre class="r"><code>iris %&gt;%
+  pivot_longer(cols=Sepal.Length:Sepal.Width:Petal.Length:Petal.Width,
+               names_to = &quot;Measure&quot;,
+               values_to= &quot;Value&quot;)</code></pre>
+<pre><code>## Warning in x:y: numerical expression has 2 elements: only the first used</code></pre>
+<pre><code>## Warning in x:y: numerical expression has 3 elements: only the first used</code></pre>
+<pre><code>## # A tibble: 600 × 3
+##    Species Measure      Value
+##    &lt;fct&gt;   &lt;chr&gt;        &lt;dbl&gt;
+##  1 setosa  Sepal.Length   5.1
+##  2 setosa  Sepal.Width    3.5
+##  3 setosa  Petal.Length   1.4
+##  4 setosa  Petal.Width    0.2
+##  5 setosa  Sepal.Length   4.9
+##  6 setosa  Sepal.Width    3  
+##  7 setosa  Petal.Length   1.4
+##  8 setosa  Petal.Width    0.2
+##  9 setosa  Sepal.Length   4.7
+## 10 setosa  Sepal.Width    3.2
+## # ℹ 590 more rows</code></pre>
 </div>
 
 
