@@ -11,10 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 #In my project I focus in epithelial plastiticty in idiopathic pulmonary fibrosis. An important cell population that is impacted and changed is Alveolar type 2 cell. These cells secrete surfactant protein C (SPC) in the alveolar space which is essential for normal lung funtion. In mice after the use of bleomycin to trigger lung fibrosis we expect that the amount of SPC is changed and will be considered as a endpoitn to analyse when an specific oxidoreductase is missing. for now I`m only comparing PBS groups (received saline/control) and Bleo(received bleomycin for injury). The values seem are the density of proteins bands in a membrane after Western Blot of bronchoalveolar lavage fluid (BALF).  
 
 
-#To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. From one of my experimenst:
+#To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. From one of my experiments:
 
 #Using as reference, for my personal data the  mean intensity of SPC band in the PBS groups is 61251 whith standard deviation of 15314 and for Bleo group mean 31146 and standard deviation of 7724
 ```{r}
+#first start using as reference some mean and standard deviation from my experiments
 PBS <-rnorm(n=6, mean = 61251, sd = 15314)
 BLEO <-rnorm(n=6, mean = 31146, sd = 7724)
 my_frame <- data.frame(PBS,BLEO)
@@ -72,7 +73,7 @@ ggplot(d_frame, aes(x = Experimental_group, y = SPC_intensity)) +
 
 ```{r}
 p_values <- numeric(10)
-
+#set up so loops 10 times
 for (i in 1:10) {
   PBS <-rnorm(n=6, mean = 61251, sd = 15314)
   BLEO <-rnorm(n=6, mean = 31146, sd = 7724)
@@ -83,12 +84,35 @@ for (i in 1:10) {
   
   t_test <-t.test(SPC_intensity~Experimental_group, data=d_frame)
   p_values[i] <- t_test$p.value
+  #set up to print the p.value in each loop 
   print(t_test$p.value)
 }
 
+#used which function to determine which of the loops came out with significant value (<0.05)
+  which(p_values<=0.05)
 
 ```
 
+#what happens if you were to start with a small sample size and then re-run your analysis? Would you still get a significant result? 
 ```{r}
+p_values <- numeric(10)
 
+for (i in 1:10) {
+  PBS <-rnorm(n=3, mean = 61251, sd = 15314)
+  BLEO <-rnorm(n=3, mean = 31146, sd = 7724)
+  
+  SPC_intensity <- c(PBS,BLEO)
+  Experimental_group <- c(rep("PBS", length(PBS)),rep("BLEO",length(BLEO))) 
+  d_frame <- data.frame(SPC_intensity, Experimental_group)
+  
+  t_test <-t.test(SPC_intensity~Experimental_group, data=d_frame)
+  p_values[i] <- t_test$p.value
+  print(t_test$p.value)
+}
+
+#bellow are the p values that are significant
+  which(p_values<=0.05)
+  
 ```
+
+#In general when doing the loops. The proportion of significant p value was lower in the the case with smaller sample size. 
