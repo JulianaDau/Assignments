@@ -8,4 +8,51 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+#In my project I focus in epithelial plastiticty in idiopathic pulmonary fibrosis. An important cell population that is impacted and changed is Alveolar type 2 cell. These cells secrete surfactant protein C (SPC) in the alveolar space which is essential for normal lung funtion. In mice after the use of bleomycin to trigger lung fibrosis we expect that the amount of SPC is changed and will be considered as a endpoitn to analyse when an specific oxidoreductase is missing. for now I`m only comparing PBS groups (received saline/control) and Bleo(received bleomycin for injury). The values seem are the density of proteins bands in a membrane after Western Blot of bronchoalveolar lavage fluid (BALF).  
 
+
+# To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. From one of my experimenst:
+
+#The  mean intensity of SPC band in the PBS groups is 61251 whith standard deviation of 15314 and for Bleo group mean 31146 and standard deviation of 7724
+```{r}
+PBS <-rnorm(n=6, mean = 61251, sd = 15314)
+BLEO <-rnorm(n=6, mean = 31146, sd = 7724)
+my_frame <- data.frame(PBS,BLEO)
+print(my_frame)
+
+
+summary(PBS)
+hist(PBS)
+qqnorm(PBS)
+
+summary(BLEO)
+hist(BLEO)
+qqnorm(BLEO)
+
+
+```
+
+# Using the methods we have covered in class, write code to create a random data set that has these attributes. Organize these data into a data frame with the appropriate structure. 
+```{r}
+
+SPC_intensity <- c(PBS,BLEO)
+Experimental_group <- c(rep("PBS", length(PBS)),rep("BLEO",length(BLEO)))
+d_frame <- data.frame(SPC_intensity, Experimental_group)
+print(d_frame)
+
+```
+# Code to analyze the data. Used t-test. 
+```{r}
+#t_test
+t.test <-t.test(SPC_intensity~Experimental_group, data=d_frame)
+
+print(t.test)
+```
+# Generate graph with the data. 
+```{r}
+library(ggplot2)
+ggplot(d_frame, aes(x = Experimental_group, y = SPC_intensity)) +
+  geom_boxplot() +
+  labs(title= "Surfactant Protein C content in BALF") +
+  theme_minimal()
+```

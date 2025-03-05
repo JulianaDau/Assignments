@@ -10,22 +10,21 @@ my_data <- read.table(file="Lung.cells.KRT8positive.csv",
 # inspect object
 str(my_data)
 
-var_a <- 1:12
+var_a <- 1:9
 var_b <- rep(c("PBS","CKO"),each=6)
-var_c <- my_data
+var_c <- str(my_data)
 d_frame <- data.frame(var_a,var_b,var_c)
 print(d_frame)
 
+group_a <- rnorm(100, mean = 10, sd = 2)
+WT<-rnorm(n=6, mean = 53, sd = 23)
+CKO<-rnorm(n=6, mean = 55, sd = 21)
+summary(WT)
+hist(WT)
+qqnorm(WT)
 
-WT<-rnorm
-rnorm(n=6, mean = 50, sd = 10)
-print(WT)
-plot(WT)
-CKO<-rnorm
-rnorm(n=6, mean = 50, sd = 20)
-print(WT)
-print (CKO)
-plot(x=WT)
-
+summary(CKO)
+hist(CKO)
+qqnorm(CKO)
 
 

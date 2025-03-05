@@ -11,7 +11,7 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-02-26" />
+<meta name="date" content="2025-03-05" />
 
 <title>Homework-6</title>
 
@@ -240,7 +240,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">Juliana Website</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -270,12 +270,109 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Homework-6</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-02-26</h4>
+<h4 class="date">2025-03-05</h4>
 
 </div>
 
 
+<p>#In my project I focus in epithelial plastiticty in idiopathic
+pulmonary fibrosis. An important cell population that is impacted and
+changed is Alveolar type 2 cell. These cells secrete surfactant protein
+C (SPC) in the alveolar space which is essential for normal lung
+funtion. In mice after the use of bleomycin to trigger lung fibrosis we
+expect that the amount of SPC is changed and will be considered as a
+endpoitn to analyse when an specific oxidoreductase is missing. for now
+I`m only comparing PBS groups (received saline/control) and
+Bleo(received bleomycin for injury). The values seem are the density of
+proteins bands in a membrane after Western Blot of bronchoalveolar
+lavage fluid (BALF).</p>
+<div
+id="to-start-simply-assume-that-the-data-in-each-of-your-treatment-groups-follow-a-normal-distribution.-specify-the-sample-sizes-means-and-variances-for-each-group-that-would-be-reasonable-if-your-hypothesis-were-true.-from-one-of-my-experimenst"
+class="section level1">
+<h1>To start simply, assume that the data in each of your treatment
+groups follow a normal distribution. Specify the sample sizes, means,
+and variances for each group that would be reasonable if your hypothesis
+were true. From one of my experimenst:</h1>
+<p>#The mean intensity of SPC band in the PBS groups is 61251 whith
+standard deviation of 15314 and for Bleo group mean 31146 and standard
+deviation of 7724</p>
+<pre class="r"><code>PBS &lt;-rnorm(n=6, mean = 61251, sd = 15314)
+BLEO &lt;-rnorm(n=6, mean = 31146, sd = 7724)
+my_frame &lt;- data.frame(PBS,BLEO)
+print(my_frame)</code></pre>
+<pre><code>##        PBS     BLEO
+## 1 60554.93 26743.65
+## 2 79991.32 27025.65
+## 3 61863.89 35624.24
+## 4 64697.97 19279.23
+## 5 59484.81 23406.36
+## 6 70173.90 20123.28</code></pre>
+<pre class="r"><code>summary(PBS)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   59485   60882   63281   66128   68805   79991</code></pre>
+<pre class="r"><code>hist(PBS)</code></pre>
+<p><img src="Homework-6_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>qqnorm(PBS)</code></pre>
+<p><img src="Homework-6_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>summary(BLEO)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   19279   20944   25075   25367   26955   35624</code></pre>
+<pre class="r"><code>hist(BLEO)</code></pre>
+<p><img src="Homework-6_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>qqnorm(BLEO)</code></pre>
+<p><img src="Homework-6_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+</div>
+<div
+id="using-the-methods-we-have-covered-in-class-write-code-to-create-a-random-data-set-that-has-these-attributes.-organize-these-data-into-a-data-frame-with-the-appropriate-structure."
+class="section level1">
+<h1>Using the methods we have covered in class, write code to create a
+random data set that has these attributes. Organize these data into a
+data frame with the appropriate structure.</h1>
+<pre class="r"><code>SPC_intensity &lt;- c(PBS,BLEO)
+Experimental_group &lt;- c(rep(&quot;PBS&quot;, length(PBS)),rep(&quot;BLEO&quot;,length(BLEO)))
+d_frame &lt;- data.frame(SPC_intensity, Experimental_group)
+print(d_frame)</code></pre>
+<pre><code>##    SPC_intensity Experimental_group
+## 1       60554.93                PBS
+## 2       79991.32                PBS
+## 3       61863.89                PBS
+## 4       64697.97                PBS
+## 5       59484.81                PBS
+## 6       70173.90                PBS
+## 7       26743.65               BLEO
+## 8       27025.65               BLEO
+## 9       35624.24               BLEO
+## 10      19279.23               BLEO
+## 11      23406.36               BLEO
+## 12      20123.28               BLEO</code></pre>
+</div>
+<div id="code-to-analyze-the-data.-used-t-test." class="section level1">
+<h1>Code to analyze the data. Used t-test.</h1>
+<pre class="r"><code>#t_test
+t.test &lt;-t.test(SPC_intensity~Experimental_group, data=d_frame)
 
+print(t.test)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  SPC_intensity by Experimental_group
+## t = -10.167, df = 9.3636, p-value = 2.297e-06
+## alternative hypothesis: true difference in means between group BLEO and group PBS is not equal to 0
+## 95 percent confidence interval:
+##  -49777.04 -31744.43
+## sample estimates:
+## mean in group BLEO  mean in group PBS 
+##           25367.07           66127.80</code></pre>
+</div>
+<div id="generate-graph-with-the-data." class="section level1">
+<h1>Generate graph with the data.</h1>
+<pre class="r"><code>library(ggplot2)
+ggplot(d_frame, aes(x = Experimental_group, y = SPC_intensity)) +
+  geom_boxplot() +
+  labs(title= &quot;Surfactant Protein C content in BALF&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="Homework-6_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
 
 
 
