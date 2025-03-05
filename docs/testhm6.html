@@ -13,7 +13,7 @@
 
 <meta name="date" content="2025-03-05" />
 
-<title>Homework-6</title>
+<title>tests.for.hm6</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -268,157 +268,39 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Homework-6</h1>
+<h1 class="title toc-ignore">tests.for.hm6</h1>
 <h4 class="author">Juliana Dau</h4>
 <h4 class="date">2025-03-05</h4>
 
 </div>
 
 
-<p>#In my project I focus in epithelial plastiticty in idiopathic
-pulmonary fibrosis. An important cell population that is impacted and
-changed is Alveolar type 2 cell. These cells secrete surfactant protein
-C (SPC) in the alveolar space which is essential for normal lung
-funtion. In mice after the use of bleomycin to trigger lung fibrosis we
-expect that the amount of SPC is changed and will be considered as a
-endpoitn to analyse when an specific oxidoreductase is missing. for now
-I`m only comparing PBS groups (received saline/control) and
-Bleo(received bleomycin for injury). The values seem are the density of
-proteins bands in a membrane after Western Blot of bronchoalveolar
-lavage fluid (BALF).</p>
-<p>#To start simply, assume that the data in each of your treatment
-groups follow a normal distribution. Specify the sample sizes, means,
-and variances for each group that would be reasonable if your hypothesis
-were true. From one of my experimenst:</p>
-<p>#Using as reference, for my personal data the mean intensity of SPC
-band in the PBS groups is 61251 whith standard deviation of 15314 and
-for Bleo group mean 31146 and standard deviation of 7724</p>
-<pre class="r"><code>PBS &lt;-rnorm(n=6, mean = 61251, sd = 15314)
-BLEO &lt;-rnorm(n=6, mean = 31146, sd = 7724)
-my_frame &lt;- data.frame(PBS,BLEO)
+<pre class="r"><code>my_data &lt;- read.table(file=&quot;SPC.quantification.csv&quot;,
+                      header=TRUE,
+                      sep=&quot;,&quot;,
+                      comment.char=&quot;#&quot;)
+
+# inspect object
+str(my_data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  1 variable:
+##  $ PBS.BLEO: chr  &quot;86919;22435&quot; &quot;48912;30349&quot; &quot;63129;35763&quot; &quot;46416;39913&quot; ...</code></pre>
+<pre class="r"><code>print(my_data)</code></pre>
+<pre><code>##      PBS.BLEO
+## 1 86919;22435
+## 2 48912;30349
+## 3 63129;35763
+## 4 46416;39913
+## 5 69364;36829
+## 6 52764;21590</code></pre>
+<pre class="r"><code>my_frame &lt;- data.frame(my_data)
 print(my_frame)</code></pre>
-<pre><code>##        PBS     BLEO
-## 1 68443.59 27585.61
-## 2 70857.40 16481.93
-## 3 48447.41 38494.53
-## 4 62765.43 12571.00
-## 5 76591.72 24569.08
-## 6 81389.35 31016.48</code></pre>
-<p>#Bellow used some tools that are described to be used to determine if
-distribution is normal. Although my sample number is small and perhaps
-not ideal for this type of analysis</p>
-<pre class="r"><code>shapiro.test(PBS)</code></pre>
-<pre><code>## 
-##  Shapiro-Wilk normality test
-## 
-## data:  PBS
-## W = 0.95188, p-value = 0.7555</code></pre>
-<pre class="r"><code>summary(PBS)</code></pre>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   48447   64185   69651   68082   75158   81389</code></pre>
-<pre class="r"><code>hist(PBS)</code></pre>
-<p><img src="Homework-6_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>qqnorm(PBS)
-qqline(PBS)</code></pre>
-<p><img src="Homework-6_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
-<pre class="r"><code>shapiro.test(PBS)</code></pre>
-<pre><code>## 
-##  Shapiro-Wilk normality test
-## 
-## data:  PBS
-## W = 0.95188, p-value = 0.7555</code></pre>
-<pre class="r"><code>summary(BLEO)</code></pre>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   12571   18504   26077   25120   30159   38495</code></pre>
-<pre class="r"><code>hist(BLEO)</code></pre>
-<p><img src="Homework-6_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>qqnorm(BLEO)
-qqline(BLEO)</code></pre>
-<p><img src="Homework-6_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<div
-id="using-the-methods-we-have-covered-in-class-write-code-to-create-a-random-data-set-that-has-these-attributes.-organize-these-data-into-a-data-frame-with-the-appropriate-structure."
-class="section level1">
-<h1>Using the methods we have covered in class, write code to create a
-random data set that has these attributes. Organize these data into a
-data frame with the appropriate structure.</h1>
-<pre class="r"><code>SPC_intensity &lt;- c(PBS,BLEO)
-Experimental_group &lt;- c(rep(&quot;PBS&quot;, length(PBS)),rep(&quot;BLEO&quot;,length(BLEO)))
-d_frame &lt;- data.frame(SPC_intensity, Experimental_group)
-print(d_frame)</code></pre>
-<pre><code>##    SPC_intensity Experimental_group
-## 1       68443.59                PBS
-## 2       70857.40                PBS
-## 3       48447.41                PBS
-## 4       62765.43                PBS
-## 5       76591.72                PBS
-## 6       81389.35                PBS
-## 7       27585.61               BLEO
-## 8       16481.93               BLEO
-## 9       38494.53               BLEO
-## 10      12571.00               BLEO
-## 11      24569.08               BLEO
-## 12      31016.48               BLEO</code></pre>
-</div>
-<div id="code-to-analyze-the-data.-used-t-test." class="section level1">
-<h1>Code to analyze the data. Used t-test.</h1>
-<pre class="r"><code>#t_test
-t.test &lt;-t.test(SPC_intensity~Experimental_group, data=d_frame)
-
-print(t.test)</code></pre>
-<pre><code>## 
-##  Welch Two Sample t-test
-## 
-## data:  SPC_intensity by Experimental_group
-## t = -7.0213, df = 9.6338, p-value = 4.383e-05
-## alternative hypothesis: true difference in means between group BLEO and group PBS is not equal to 0
-## 95 percent confidence interval:
-##  -56667.12 -29258.30
-## sample estimates:
-## mean in group BLEO  mean in group PBS 
-##           25119.77           68082.48</code></pre>
-</div>
-<div id="generate-graph-with-the-data." class="section level1">
-<h1>Generate graph with the data.</h1>
-<pre class="r"><code>library(ggplot2)
-ggplot(d_frame, aes(x = Experimental_group, y = SPC_intensity)) +
-  geom_boxplot() +
-  labs(title= &quot;Surfactant Protein C content in BALF&quot;) +
-  theme_minimal()</code></pre>
-<p><img src="Homework-6_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>#Using a series of for loops, adjust the parameters of your data to
-explore how they might impact your results/analysis, and store the
-results of your for loops into an object so you can view it. For
-example, what happens if you were to start with a small sample size and
-then re-run your analysis? Would you still get a significant result?
-What if you were to increase that sample size by 5, or 10? How small can
-your sample size be before you detect a significant pattern (p &lt;
-0.05)? How small can the differences between the groups be (the “effect
-size”) for you to still detect a significant pattern?</p>
-<pre class="r"><code>p_values &lt;- numeric(10)
-
-for (i in 1:10) {
-  PBS &lt;-rnorm(n=6, mean = 61251, sd = 15314)
-  BLEO &lt;-rnorm(n=6, mean = 31146, sd = 7724)
-  
-  SPC_intensity &lt;- c(PBS,BLEO)
-  Experimental_group &lt;- c(rep(&quot;PBS&quot;, length(PBS)),rep(&quot;BLEO&quot;,length(BLEO))) 
-  d_frame &lt;- data.frame(SPC_intensity, Experimental_group)
-  
-  t_test &lt;-t.test(SPC_intensity~Experimental_group, data=d_frame)
-  p_values[i] &lt;- t_test$p.value
-  print(t_test$p.value)
-}</code></pre>
-<pre><code>## [1] 0.00393175
-## [1] 0.001240942
-## [1] 0.0332162
-## [1] 0.006020717
-## [1] 0.006105761
-## [1] 0.0003354955
-## [1] 2.466972e-06
-## [1] 0.003775996
-## [1] 0.005028447
-## [1] 0.003922862</code></pre>
-</div>
+<pre><code>##      PBS.BLEO
+## 1 86919;22435
+## 2 48912;30349
+## 3 63129;35763
+## 4 46416;39913
+## 5 69364;36829
+## 6 52764;21590</code></pre>
 
 
 

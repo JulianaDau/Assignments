@@ -10,6 +10,8 @@ my_data <- read.table(file="Lung.cells.KRT8positive.csv",
 # inspect object
 str(my_data)
 
+shapiro.test(my_data$len)
+
 var_a <- 1:9
 var_b <- rep(c("PBS","CKO"),each=6)
 var_c <- str(my_data)
@@ -26,5 +28,17 @@ qqnorm(WT)
 summary(CKO)
 hist(CKO)
 qqnorm(CKO)
+
+
+PBS <-rnorm(n=6, mean = 61251, sd = 15314)
+BLEO <-rnorm(n=6, mean = 31146, sd = 7724)
+
+summary(PBS)
+hist(PBS)
+qqnorm(PBS)
+
+summary(BLEO)
+hist(BLEO)
+qqnorm(BLEO)
 
 

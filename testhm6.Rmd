@@ -1,0 +1,35 @@
+---
+title: "tests.for.hm6"
+author: "Juliana Dau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+my_data <- read.table(file="SPC.quantification.csv",
+                      header=TRUE,
+                      sep=",",
+                      comment.char="#")
+
+# inspect object
+str(my_data)
+my_frame <- data.frame(my_data)
+print(my_frame)
+
+
+```
+```{r}
+cut_point <- 0.1
+z <- NA
+ran_data <- runif(100)
+for (i in seq_along(ran_data)) {
+ z <- ranData[i]
+ if (z < cut_point) break
+}
+print(z)
+```
+```
