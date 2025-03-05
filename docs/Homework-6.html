@@ -299,12 +299,12 @@ BLEO &lt;-rnorm(n=6, mean = 31146, sd = 7724)
 my_frame &lt;- data.frame(PBS,BLEO)
 print(my_frame)</code></pre>
 <pre><code>##        PBS     BLEO
-## 1 83439.83 33278.50
-## 2 63624.20 21459.41
-## 3 58042.04 37524.94
-## 4 46021.21 32192.50
-## 5 63345.55 27573.23
-## 6 91753.23 25853.63</code></pre>
+## 1 53045.58 38099.20
+## 2 79222.56 27644.02
+## 3 64569.34 39839.23
+## 4 84173.35 41864.33
+## 5 56611.67 39789.76
+## 6 64671.94 21488.87</code></pre>
 <p>#Bellow used some tools that are described to be used to determine if
 distribution is normal. Although my sample number is small and perhaps
 not ideal for this type of analysis</p>
@@ -313,10 +313,10 @@ not ideal for this type of analysis</p>
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  PBS
-## W = 0.93783, p-value = 0.6418</code></pre>
+## W = 0.91709, p-value = 0.4846</code></pre>
 <pre class="r"><code>summary(PBS)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   46021   59368   63485   67704   78486   91753</code></pre>
+##   53046   58601   64621   67049   75585   84173</code></pre>
 <pre class="r"><code>hist(PBS)</code></pre>
 <p><img src="Homework-6_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code>qqnorm(PBS)
@@ -327,10 +327,10 @@ qqline(PBS)</code></pre>
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  PBS
-## W = 0.93783, p-value = 0.6418</code></pre>
+## W = 0.91709, p-value = 0.4846</code></pre>
 <pre class="r"><code>summary(BLEO)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   21459   26284   29883   29647   33007   37525</code></pre>
+##   21489   30258   38944   34788   39827   41864</code></pre>
 <pre class="r"><code>hist(BLEO)</code></pre>
 <p><img src="Homework-6_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>qqnorm(BLEO)
@@ -347,18 +347,18 @@ Experimental_group &lt;- c(rep(&quot;PBS&quot;, length(PBS)),rep(&quot;BLEO&quot
 d_frame &lt;- data.frame(SPC_intensity, Experimental_group)
 print(d_frame)</code></pre>
 <pre><code>##    SPC_intensity Experimental_group
-## 1       83439.83                PBS
-## 2       63624.20                PBS
-## 3       58042.04                PBS
-## 4       46021.21                PBS
-## 5       63345.55                PBS
-## 6       91753.23                PBS
-## 7       33278.50               BLEO
-## 8       21459.41               BLEO
-## 9       37524.94               BLEO
-## 10      32192.50               BLEO
-## 11      27573.23               BLEO
-## 12      25853.63               BLEO</code></pre>
+## 1       53045.58                PBS
+## 2       79222.56                PBS
+## 3       64569.34                PBS
+## 4       84173.35                PBS
+## 5       56611.67                PBS
+## 6       64671.94                PBS
+## 7       38099.20               BLEO
+## 8       27644.02               BLEO
+## 9       39839.23               BLEO
+## 10      41864.33               BLEO
+## 11      39789.76               BLEO
+## 12      21488.87               BLEO</code></pre>
 </div>
 <div id="code-to-analyze-the-data.-used-t-test." class="section level1">
 <h1>Code to analyze the data. Used t-test.</h1>
@@ -370,13 +370,13 @@ print(t.test)</code></pre>
 ##  Welch Two Sample t-test
 ## 
 ## data:  SPC_intensity by Experimental_group
-## t = -5.2233, df = 6.159, p-value = 0.001818
+## t = -5.3333, df = 8.7295, p-value = 0.0005235
 ## alternative hypothesis: true difference in means between group BLEO and group PBS is not equal to 0
 ## 95 percent confidence interval:
-##  -55774.52 -20340.09
+##  -46010.43 -18512.58
 ## sample estimates:
 ## mean in group BLEO  mean in group PBS 
-##           29647.03           67704.34</code></pre>
+##           34787.57           67049.07</code></pre>
 </div>
 <div id="generate-graph-with-the-data." class="section level1">
 <h1>Generate graph with the data.</h1>
@@ -410,21 +410,23 @@ for (i in 1:10) {
   #set up to print the p.value in each loop 
   print(t_test$p.value)
 }</code></pre>
-<pre><code>## [1] 6.488157e-05
-## [1] 0.0302329
-## [1] 0.003560446
-## [1] 3.305496e-06
-## [1] 0.00803443
-## [1] 9.717801e-05
-## [1] 0.001402202
-## [1] 0.0003194318
-## [1] 2.023236e-05
-## [1] 0.03941872</code></pre>
+<pre><code>## [1] 0.01941394
+## [1] 0.0002779773
+## [1] 3.326848e-05
+## [1] 0.0005304
+## [1] 0.01115896
+## [1] 0.005638032
+## [1] 0.001094564
+## [1] 0.007979273
+## [1] 0.01339123
+## [1] 0.005961892</code></pre>
 <pre class="r"><code>#used which function to determine which of the loops came out with significant value (&lt;0.05)
   which(p_values&lt;=0.05)</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>#what happens if you were to start with a small sample size and then
 re-run your analysis? Would you still get a significant result?</p>
+<p>#In general when doing the loops. The proportion of significant p
+value was lower in the the case with smaller sample size.</p>
 <pre class="r"><code>p_values &lt;- numeric(10)
 
 for (i in 1:10) {
@@ -439,21 +441,47 @@ for (i in 1:10) {
   p_values[i] &lt;- t_test$p.value
   print(t_test$p.value)
 }</code></pre>
-<pre><code>## [1] 0.009414424
-## [1] 0.000191604
-## [1] 0.09897118
-## [1] 0.1395168
-## [1] 0.02919039
-## [1] 0.01342052
-## [1] 0.001813153
-## [1] 0.1461985
-## [1] 0.01756974
-## [1] 0.0653405</code></pre>
+<pre><code>## [1] 0.162924
+## [1] 0.08063394
+## [1] 0.1655123
+## [1] 0.02834004
+## [1] 0.1040771
+## [1] 0.05228381
+## [1] 0.06176371
+## [1] 0.000753398
+## [1] 0.01209245
+## [1] 0.003029478</code></pre>
 <pre class="r"><code>#bellow are the p values that are significant
   which(p_values&lt;=0.05)</code></pre>
-<pre><code>## [1] 1 2 5 6 7 9</code></pre>
-<p>#In general when doing the loops. The proportion of significant p
-value was lower in the the case with smaller sample size.</p>
+<pre><code>## [1]  4  8  9 10</code></pre>
+<p>#Bellow how it would look with a sample size of 10.</p>
+<pre class="r"><code>p_values &lt;- numeric(10)
+
+for (i in 1:10) {
+  PBS &lt;-rnorm(n=10, mean = 61251, sd = 15314)
+  BLEO &lt;-rnorm(n=10, mean = 31146, sd = 7724)
+  
+  SPC_intensity &lt;- c(PBS,BLEO)
+  Experimental_group &lt;- c(rep(&quot;PBS&quot;, length(PBS)),rep(&quot;BLEO&quot;,length(BLEO))) 
+  d_frame &lt;- data.frame(SPC_intensity, Experimental_group)
+  
+  t_test &lt;-t.test(SPC_intensity~Experimental_group, data=d_frame)
+  p_values[i] &lt;- t_test$p.value
+  print(t_test$p.value)
+}</code></pre>
+<pre><code>## [1] 0.0001216098
+## [1] 0.0001478612
+## [1] 4.760486e-05
+## [1] 4.456088e-05
+## [1] 7.85629e-05
+## [1] 0.0008251127
+## [1] 1.092556e-05
+## [1] 9.191582e-06
+## [1] 6.324016e-05
+## [1] 2.353193e-05</code></pre>
+<pre class="r"><code>#bellow are the p values that are significant
+  which(p_values&lt;=0.05)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 
 

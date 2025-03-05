@@ -94,6 +94,9 @@ for (i in 1:10) {
 ```
 
 #what happens if you were to start with a small sample size and then re-run your analysis? Would you still get a significant result? 
+
+#In general when doing the loops. The proportion of significant p value was lower in the the case with smaller sample size. 
+
 ```{r}
 p_values <- numeric(10)
 
@@ -110,9 +113,33 @@ for (i in 1:10) {
   print(t_test$p.value)
 }
 
+
+
 #bellow are the p values that are significant
   which(p_values<=0.05)
   
 ```
 
-#In general when doing the loops. The proportion of significant p value was lower in the the case with smaller sample size. 
+#Bellow how it would look with a sample size of 10.
+```{r}
+p_values <- numeric(10)
+
+for (i in 1:10) {
+  PBS <-rnorm(n=10, mean = 61251, sd = 15314)
+  BLEO <-rnorm(n=10, mean = 31146, sd = 7724)
+  
+  SPC_intensity <- c(PBS,BLEO)
+  Experimental_group <- c(rep("PBS", length(PBS)),rep("BLEO",length(BLEO))) 
+  d_frame <- data.frame(SPC_intensity, Experimental_group)
+  
+  t_test <-t.test(SPC_intensity~Experimental_group, data=d_frame)
+  p_values[i] <- t_test$p.value
+  print(t_test$p.value)
+}
+
+
+
+#bellow are the p values that are significant
+  which(p_values<=0.05)
+  
+```
