@@ -1,0 +1,72 @@
+---
+title: "Homework.10"
+author: "Juliana Dau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Open library
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(ggbeeswarm) 
+library(ggridges)
+library(waffle)
+
+
+```
+#Open dataset 
+```{r}
+colony <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/colony.csv')
+stressor <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/stressor.csv')
+
+```
+
+
+```{r}
+Graph1 <- ggplot(data=stressor) + 
+  aes(x=year,y=stress_pct,color=state) +
+  geom_col()
+print(Graph1)
+
+```
+
+
+```{r}
+
+Graph2 <- ggplot(data=stressor) +
+  aes(x=stress_pct,y=stressor,fill=stressor) + 
+  ggridges::geom_density_ridges() +
+  ggridges::theme_ridges() 
+      
+print(Graph2)
+```
+
+```{r}
+Graph3 <- ggplot(data=stressor) + 
+  aes(x=year,y=stress_pct,color=stressor) +
+  geom_beeswarm(size=0.5) 
+
+print(Graph3)
+
+```
+
+
+
+```{r}
+Graph <- ggplot(data=stressor) + 
+            aes(x=year,y=stress_pct,color=stress_pct) + 
+            geom_point() 
+ 
+
+Graph4<- Graph +  facet_grid(stressor~months)  
+
+Graph4+ scale_color_gradient(low="green", high="red")
+```
+

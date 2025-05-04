@@ -20,3 +20,7 @@ week 5 Homework [Homework 5](Homework-5.html)
 week 6 Homework [Homework 6](Homework-6.html)
 
 week 7 Homework [Homework 7](Homework-7.html)
+
+week 8 Homework [Homework 8](Homework-8.html)
+
+week 9 Homework [Homework 9](Homework-9.html)

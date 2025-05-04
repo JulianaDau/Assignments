@@ -11,9 +11,9 @@
 
 <meta name="author" content="Juliana Dau" />
 
-<meta name="date" content="2025-03-26" />
+<meta name="date" content="2025-04-16" />
 
-<title>Lab.assignments</title>
+<title>TestHM10</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -268,21 +268,72 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Lab.assignments</h1>
+<h1 class="title toc-ignore">TestHM10</h1>
 <h4 class="author">Juliana Dau</h4>
-<h4 class="date">2025-03-26</h4>
+<h4 class="date">2025-04-16</h4>
 
 </div>
 
 
-<p>week 1 Homework <a href="Hw1.html">HW1 Link</a></p>
-<p>week 3 Homework <a href="Homework-3.html">Homework 3</a></p>
-<p>week 4 Homework <a href="Homework-4.html">Homework 4</a></p>
-<p>week 5 Homework <a href="Homework-5.html">Homework 5</a></p>
-<p>week 6 Homework <a href="Homework-6.html">Homework 6</a></p>
-<p>week 7 Homework <a href="Homework-7.html">Homework 7</a></p>
-<p>week 8 Homework <a href="Homework-8.html">Homework 8</a></p>
-<p>week 9 Homework <a href="Homework-9.html">Homework 9</a></p>
+<pre class="r"><code>library(ggplot2)
+library(ggthemes)</code></pre>
+<pre><code>## Warning: pacote &#39;ggthemes&#39; foi compilado no R versão 4.4.3</code></pre>
+<pre class="r"><code>library(patchwork)</code></pre>
+<pre class="r"><code>artists &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv&#39;)</code></pre>
+<pre><code>## Rows: 3162 Columns: 14
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): artist_name, artist_nationality, artist_nationality_other, artist_g...
+## dbl (6): edition_number, year, space_ratio_per_page_total, artist_unique_id,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>ggplot(data=artists) +
+  aes(x=year, y=artist_nationality) +
+  geom_boxplot(fill=&quot;thistle&quot;)</code></pre>
+<p><img src="Homework-10__files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>artists &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv&#39;)</code></pre>
+<pre><code>## Rows: 3162 Columns: 14
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): artist_name, artist_nationality, artist_nationality_other, artist_g...
+## dbl (6): edition_number, year, space_ratio_per_page_total, artist_unique_id,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>ggplot(data=artists, mapping=aes(x=year,y=artist_nationality)) + geom_point()</code></pre>
+<p><img src="Homework-10__files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>artists &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv&#39;)</code></pre>
+<pre><code>## Rows: 3162 Columns: 14
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): artist_name, artist_nationality, artist_nationality_other, artist_g...
+## dbl (6): edition_number, year, space_ratio_per_page_total, artist_unique_id,...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>ggplot(data=artists) +
+          aes(x=year,
+          y=artist_nationality,
+          color=artist_race) + 
+      geom_point()</code></pre>
+<p><img src="Homework-10__files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>nobel_winners &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2019/2019-05-14/nobel_winners.csv&quot;)</code></pre>
+<pre><code>## Rows: 969 Columns: 18
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (14): category, prize, motivation, prize_share, laureate_type, full_nam...
+## dbl   (2): prize_year, laureate_id
+## date  (2): birth_date, death_date
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>ggplot(data=nobel_winners) +
+          aes(x=prize_year,
+          y=category,
+          color=birth_country) + 
+      geom_point()</code></pre>
+<p><img src="Homework-10__files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
 
 

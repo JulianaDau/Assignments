@@ -1,0 +1,82 @@
+---
+title: "TestHM10"
+author: "Juliana Dau"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(patchwork)
+library(ggbeeswarm) 
+library(ggridges)
+```
+
+```{r}
+artists <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv')
+
+ggplot(data=artists) +
+  aes(x=cocoa_percent, y=rating) +
+  geom_boxplot(fill="thistle")
+
+```
+
+```{r}
+artists <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv')
+ggplot(data=artists, mapping=aes(x=year,y=artist_nationality)) + geom_point()
+
+```
+
+```{r}
+artists <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-01-17/artists.csv')
+ggplot(data=artists) +
+          aes(x=year,
+          y=artist_nationality,
+          color=artist_race) + 
+      geom_point()
+
+```
+
+```{r}
+nobel_winners <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2019/2019-05-14/nobel_winners.csv")
+ggplot(data=nobel_winners) +
+          aes(x=prize_year,
+          y=category,
+          color=gender) + 
+      geom_point()
+
+```
+
+```{r}
+colony <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/colony.csv')
+stressor <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/stressor.csv')
+ggplot(data=stressor) +
+          aes(x=year,
+          y=state,
+          color=stressor) + 
+      geom_point()
+
+```
+
+```{r}
+colony <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/colony.csv')
+stressor <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-01-11/stressor.csv')
+
+```
+
+```{r}
+g1 <- ggplot(data=stressor) +
+      aes(x=stress_pct,y=stressor) + 
+      geom_point() + 
+      geom_smooth()
+print(g1)
+
+```
+
