@@ -16,6 +16,7 @@ install_github('ngotelli/upscaler')
 library(upscaler)
 library(stringr)
 library(tidyverse)
+library(sqldf)
 ```
 
 ```{r}
@@ -36,12 +37,21 @@ years <- (2015:2023)
 for (i in 1:10) {
   print(CleanedData[i])
   raw_data <- read.csv(CleanedData[i], na.strings = c("","NA")) 
-  clean_data <- raw_data[complete.cases(raw_data["scientificName"]), ] 
+  clean_data <- raw_data[complete.cases(raw_data["scientificName"]),                ] 
   write.csv(CleanedData,paste0("CleanedData", years[i], ".csv"))
 }
 ```
 ```{r}
 glimpse(clean_data)
 
+```
+#Calculate Abundance for each year (Total number of individuals found)
+```{r}
+
+
 
 ```
+
+
+
+ 
