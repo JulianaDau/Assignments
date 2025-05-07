@@ -14,10 +14,34 @@ knitr::opts_chunk$set(echo = TRUE)
 library(devtools)
 install_github('ngotelli/upscaler')
 library(upscaler)
-
-
-add_folder()
-add_folder(c("CountData"))
-metadata_template(file="CountData/NEON.D01.BART.DP1.10003.001.brd_countdata.2015-06.basic.20241119T065914Z.csv")
+library(stringr)
+library(tidyverse)
+```
 
 ```{r}
+x<-list.files("C:/Users/jujud/OneDrive/Documentos/Computational Biology/Assignments")
+subfolders <- x
+for(i in 1:10){
+  print(x[i])
+  CleanedData<-list.files(
+    path = list.files(),
+    pattern=".brd_countdata.",
+    full.names=TRUE)
+  print(CleanedData)
+}
+```
+```{r}
+years <- (2015:2023)
+
+for (i in 1:10) {
+  print(CleanedData[i])
+  raw_data <- read.csv(CleanedData[i], na.strings = c("","NA")) 
+  clean_data <- raw_data[complete.cases(raw_data["scientificName"]), ] 
+  write.csv(CleanedData,paste0("CleanedData", years[i], ".csv"))
+}
+```
+```{r}
+glimpse(clean_data)
+
+
+```
