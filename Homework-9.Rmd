@@ -39,18 +39,16 @@ for (i in 1:10) {
   raw_data <- read.csv(CleanedData[i], na.strings = c("","NA")) 
   clean_data <- raw_data[complete.cases(raw_data["scientificName"]),                ] 
   write.csv(CleanedData,paste0("CleanedData", years[i], ".csv"))
+
 }
 ```
 ```{r}
 glimpse(clean_data)
 
 ```
-#Calculate Abundance for each year (Total number of individuals found)
-```{r}
+#To try to calculate abundance and richness per year tried to add a colunm with the year that is linked to the file but wasn`t able to troubleshoot. 
 
 
-
-```
 
 
 
